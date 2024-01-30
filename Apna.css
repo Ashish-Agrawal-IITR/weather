@@ -5,13 +5,13 @@
     box-sizing: border-box ;
 }
 body {
-  height: 50%;
+  height: 100%;
  }
 
 body {
   
-  background-image: url("pexels-pixabay-258173.jpg");
-  height: 50%;
+  background-image: url("pexele-pixabay-258173.jpg");
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
