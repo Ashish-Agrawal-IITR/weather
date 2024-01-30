@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather for Wellness</title>
+    <link rel="stylesheet" href="Apna.css">
+</head>
+<body>
+</body>
+<div class="card">
+    <div class="search">
+      <input type="text"  placeholder="Enter The City Name" spellcheck="false">
+      <button><img src="magnifying-glass.png" width="40px"></button>
+    </div>
+    <div class="error">
+      <p>Invalid City Name</p>
+    </div>
+    <div class="wheather">
+      <img src="cloudy.png" class="wheather-icon">
+      <h1 class="temp">22°C</h1>
+      <h2 class="city">Delhi</h2>
+      <div class="details">
+      <div class="col">
+        <img src="humidity.png" class="cloudy">
+      <div>
+      <p class="humidity" >50%</p>
+      <p>Humidity</p>
+    </div>
+  </div>
+  <div class="col">
+    <img src="wind.png" class="cloudy">
+  <p class="wind">15 km/h</p>
+  <p>Wind speed</p>
+</div>
+</div> </div>
+<script>
+  const apiKey ="4cfaa8dd6a67c207ffd0caf5856622f4";
+  const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+  
+  const searchBox =document.querySelector(".search input");
+  const searchBtn =document.querySelector(".search button");
+  
+  async function checkWeather(city){
+    const response = await fetch(apiUrl + city +`&appid=${apiKey}`);
+
+    if(response.status==404){
+      document.querySelector(".error").style.display="block";
+      document.querySelector(".wheather").style.display="none";
+    }else{
+      var data =await response.json();
+  
+   
+    document.querySelector(".city").innerHTML=data.name;
+    document.querySelector(".temp").innerHTML=Math.round(data.main.temp) +"°C";
+    document.querySelector(".humidity").innerHTML=data.main.humidity +"%";
+    document.querySelector(".wind").innerHTML=data.wind.speed + "km/h";
+
+    document.querySelector(".wheather").style.display="block";
+    document.querySelector(".error").style.display="none";
+
+    }
+  }
+  searchBtn.addEventListener("click", ()=>{
+    checkWeather(searchBox.value);
+  })
+  
+  </script>
+
+</body>
+</html>
