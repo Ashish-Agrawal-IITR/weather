@@ -5,8 +5,17 @@
     box-sizing: border-box ;
 }
 body {
-    background: #222;  
-  }
+  height: 50%;
+ }
+
+body {
+  
+  background-image: url("pexels-pixabay-258173.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
   
 .card {
     background:linear-gradient(135deg, #00feba,#5b54ba);
